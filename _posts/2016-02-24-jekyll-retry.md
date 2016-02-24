@@ -6,7 +6,7 @@ categories: jekyll
 
 我決定重新來過
 砍了整個repo
-然後成立一個預設的新專案觀察一個Jekyll網站的架構
+然後建立一個預設的新專案觀察一個Jekyll網站的架構
 
 <!--more-->
 
@@ -48,7 +48,7 @@ categories: jekyll
 Markdown的部分有正確讀取到
 問題是它並不是使用GFM
 Google "Jekyll GFM"會查到官網的[調校](http://jekyllrb.com/docs/configuration/)頁面
-我發現只要在`_config.yml`裡加入2行就能開啟GFM的功能
+我發現只要在`_config.yml`裡加入幾行就能開啟GFM的功能
 跟著做吧：
 
 ```
