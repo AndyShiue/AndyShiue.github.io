@@ -35,8 +35,9 @@ layout: post
 category : jekyll
 tags : [jekyll, tutorial]
 ---
+{% raw %}
 {% include JB/setup %}
-
+{% endraw %}
 ```
 
 然後試著執行`bundle exec Jekyll serve`看看有沒有成功加入一篇新文章
