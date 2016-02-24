@@ -54,7 +54,7 @@ Google "Jekyll GFM"會查到官網的[調校](http://jekyllrb.com/docs/configura
 ```
 kramdown:
   input: GFM
-  hard_wrap: false
+  hard_wrap: true
 ```
 
 太好了
