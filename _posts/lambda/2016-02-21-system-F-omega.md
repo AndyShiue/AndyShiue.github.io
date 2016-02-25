@@ -21,11 +21,11 @@ system Fω則再導入了type到type的函數
 kind是type的型別
 首先
 我們有一個最基礎的kind
-叫作\\(\*\\)(就是一個星號沒錯)
+叫作\\(\star\\)(就是一個星號沒錯)
 英文讀成star
 所有我在system F裡面提過的type都屬於這個kind
 還記得前面的判決吧
-那時的\\(\*\\)就是這樣來的
+那時的\\(\star\\)就是這樣來的
 除此之外
 還能用箭頭\\(\to\\)建構更複雜的kind
 有沒有覺得這句話很眼熟？
@@ -33,7 +33,7 @@ kind是type的型別
 事實上可以發現
 我們建構的kind系統非常接近STLC的type系統
 只是更往上了一層而已
-原先type階層的\\(Base\\)對應到了kind階層的\\(\*\\)
+原先type階層的\\(Base\\)對應到了kind階層的\\(\star\\)
 而type階層的\\(\to\\)對應到了kind階層的\\(\to\\)
 啊對了提一下
 目前type階層的\\(\to\\)和kind階層的\\(\to\\)還是不同的東西喔
@@ -42,7 +42,7 @@ kind是type的型別
 
 要怎麼寫一個type到type的函數呢
 舉個最簡單的例子
-\\(\emptyset \vdash (\lambda A: \*. A): * \to \*\\)
+\\(\emptyset \vdash (\lambda A: \star. A): \star \to \star\\)
 這相當於STLC中的\\(\emptyset \vdash (\lambda x: Base. x): Base \to Base\\)
 這邊我也重用了\\(\lambda\\)符號
 讓它能代表一個type到type的函數
@@ -63,7 +63,7 @@ type(T) ::= & \mathbf{Var} (X) \\
           | & T T \\
           | & T \to T \\
           | & \forall X: K. T \\
-kind(K) ::= & * \\
+kind(K) ::= & \star \\
           | & K \to K \\
 \end{array}
 $$
@@ -71,7 +71,7 @@ $$
 和system F 差了哪些呢？
 
 1. \\(\Lambda\\)和\\(\forall\\)的綁定變數上多了一個kind的標記
-   所以現在可以把一個型別是\\(\* \to \*\\)的type丟到\\(\Lambda\\)裡
+   所以現在可以把一個型別是\\(\star \to \star\\)的type丟到\\(\Lambda\\)裡
 
 2. 增加了type到type的lambda和函數調用
 
@@ -136,7 +136,7 @@ system Fω一樣是強規範化的
 |                                       |                      |                      | \\(\forall X: K. T\\)    |
 |                                       |                      |                      | \\(\uparrow(forall_T)\\) |
 | kind(K):                              |                      |                      |                        |
-|                                       |                      |                      | \\(K \to K\\)            | \\(*\\)
+|                                       |                      |                      | \\(K \to K\\)            | \\(\star\\)
 |                                       |                      |                      | \\(\uparrow\\)(不用規則) | \\(\uparrow\\)(不用規則)
 
 注意上面一共有12條規則
@@ -165,8 +165,8 @@ $$
 
 $$
 \begin{array}{lcl}
-(arrow_T) & \dfrac{\Gamma \vdash T_1: * \qquad \Gamma \vdash T_2: *}{\Gamma \vdash T_1 \to T_2: *} \\
-(forall_T) & \dfrac{\Gamma, X: K_1 \vdash T_2: *}{\Gamma \vdash \forall X: K_1. T_2} \\
+(arrow_T) & \dfrac{\Gamma \vdash T_1: \star \qquad \Gamma \vdash T_2: \star}{\Gamma \vdash T_1 \to T_2: \star} \\
+(forall_T) & \dfrac{\Gamma, X: K_1 \vdash T_2: \star}{\Gamma \vdash \forall X: K_1. T_2} \\
 \end{array}
 $$
 
@@ -187,8 +187,8 @@ $$
 則我們就沒辦法調用那個lambda
 因為我們無法以任何值作為參數
 有什麼非一般type的例子？
-例如像\\(\lambda A: \*. A\\)就不是一般type
-它的kind不是* 而是\\(\* \to \*\\)
+例如像\\(\lambda A: \star. A\\)就不是一般type
+它的kind不是\\(\star\\) 而是\\(\star \to \star\\)
 
 然後是\\((forall_T)\\)
 我們反過來讀
@@ -218,27 +218,27 @@ $$
 可以正式介紹\\((var)\\)了：
 
 $$
-(var) \quad \frac{\Gamma \vdash T: * }{\Gamma, x: T \vdash x: T}
+(var) \quad \frac{\Gamma \vdash T: \star}{\Gamma, x: T \vdash x: T}
 $$
 
 舉個例子來說
 
 $$
-(var) \quad \frac{A: * \vdash A: *}{A: *, x: A \vdash x: A}
+(var) \quad \frac{A: \star \vdash A: \star}{A: \star, x: A \vdash x: A}
 $$
 
 現在問題來了
 如果變數不在語境的最尾端怎麼辦
 舉例來說
-要怎麼判決\\(A: \*, x: A, y: A \vdash x: A\\)？
+要怎麼判決\\(A: \star, x: A, y: A \vdash x: A\\)？
 \\((var)\\)規則只能作用在語境的最尾端
 所以單靠這條規則是沒辦法得到以上判決的
 因此我們需要另外2條規則
 
 $$
 \begin{array}{lcl}
-(weak_1) & \dfrac{\Gamma \vdash x_1: T \qquad \Gamma \vdash U: * }{\Gamma, x_2: U \vdash x_1: T} \\
-(weak_2) & \dfrac{\Gamma \vdash x: T}{\Gamma, U: * \vdash x_1: T} \: \mbox{if } K是kind
+(weak_1) & \dfrac{\Gamma \vdash x_1: T \qquad \Gamma \vdash U: \star}{\Gamma, x_2: U \vdash x_1: T} \\
+(weak_2) & \dfrac{\Gamma \vdash x: T}{\Gamma, U: \star \vdash x_1: T} \: \mbox{if } K是kind
 \end{array}
 $$
 
@@ -247,15 +247,15 @@ $$
 則可以在該判決語境的尾端加入任何東西
 判決依然會成立
 如此一來
-從\\(A: \*, x: A \vdash x: A\\)
-就能推得\\(A: \*, x: A, y: A \vdash x: A\\)
+從\\(A: \star, x: A \vdash x: A\\)
+就能推得\\(A: \star, x: A, y: A \vdash x: A\\)
 
 還剩下5條規則 真累......
 
 $$
 \begin{array}{lcl}
 (appl) & \dfrac{\Gamma \vdash t_1: T \to U \qquad \Gamma \vdash t_2: T}{\Gamma \vdash t_1 t_2: U} \\
-(abst) & \dfrac{\Gamma, x: T \vdash t: U \qquad \Gamma \vdash T: *}{\Gamma \vdash (\lambda x: T. t): T \to U} \\
+(abst) & \dfrac{\Gamma, x: T \vdash t: U \qquad \Gamma \vdash T: \star}{\Gamma \vdash (\lambda x: T. t): T \to U} \\
 (appl_2) & \dfrac{\Gamma \vdash t: \forall X: K. T \qquad U: K}{\Gamma \vdash t U: T[X := U]} \\
 (abst_2) & \dfrac{\Gamma, X: K \vdash t: T}{\Gamma \vdash (\Lambda X: K. t): \forall X: K. T}
 \end{array}
@@ -266,15 +266,15 @@ $$
 我就不再度解釋它們了
 
 $$
-(conv) \quad \frac{\Gamma \vdash t: T \qquad \Gamma \vdash U: * }{\Gamma \vdash t: U} \: \mbox{if } T \cong U
+(conv) \quad \frac{\Gamma \vdash t: T \qquad \Gamma \vdash U: \star}{\Gamma \vdash t: U} \: \mbox{if } T \cong U
 $$
 
 這是最後一條規則
 要是沒有這條規則的話
-則沒有term的type會是\\((\lambda A: \*. A) B\\)
+則沒有term的type會是\\((\lambda A: \star. A) B\\)
 因為上面沒有一條規則產出的型別是type層級上的函數
 但我們*確實*希望當\\(x: B\\)時
-\\(x: (\lambda A: \*. A) B\\)
+\\(x: (\lambda A: \star. A) B\\)
 
 這條規則基本上告訴我們
 要是\\(T\\)等於\\(U\\)而且\\(t: T\\)
@@ -290,7 +290,7 @@ $$
 我會從更簡單的等價性開始說起
 最後再解釋\\(\beta\\)-等價性
 先給個簡單的例子
-\\((\lambda A: *. A) B =\_\beta B\\)
+\\((\lambda A: \star. A) B =\_\beta B\\)
 這麼一來你應該能大概抓到\\(\beta\\)-等價(也就是\\(=_\beta\\))到底是什麼
 
 首先介紹最簡單的等價性是什麼
@@ -333,7 +333,7 @@ $$
 而這也就是我們想要的
 
 回到\\((conv)\\)上頭
-這條規則的前提有\\(\Gamma \vdash U: \*\\)
+這條規則的前提有\\(\Gamma \vdash U: \star\\)
 為什麼要有這個前提呢？
 其實是因為技術上來說
 一個合法的type可以\\(\beta\\)-等價於一個不合法的type
