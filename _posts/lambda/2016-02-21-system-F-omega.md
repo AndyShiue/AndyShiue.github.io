@@ -114,7 +114,7 @@ system Fω一樣是強規範化的
 | \\(\mathbf{var}(x)\\)    | \\(\lambda x.:T t\\)   | \\(t t\\)              |                    |
 | \\(\uparrow(var)\\)      | \\(\uparrow(abst)\\)   | \\(\uparrow(appl)\\)   |                    |
 |                        | \\(\Lambda X. t\\)     | \\(t T\\)              |                    |
-|                        | \\(\uparrow(abst_2)\\) | \\(\uparrow(abst_2)\\) |                    |
+|                        | \\(\uparrow(abst_2)\\) | \\(\uparrow(appl_2)\\) |                    |
 | type(T):               |                      |                      |                    |
 | \\(\mathbf{Var}(X)\\)    |                      |                      | \\(T \to T\\)        |
 | \\(\uparrow\\)(不用規則) |                      |                      | \\(\uparrow(form)\\) |
