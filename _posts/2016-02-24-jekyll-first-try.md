@@ -29,7 +29,7 @@ git push --force origin master
 我把[Jekyll(1)](http://pigggggggggggggy.logdown.com/posts/2016/02/24/546001)這篇文章丟進`C:\AndyShiue\AndyShiue.github.io\_posts\`
 開頭參考Jekyll Bootstrap提供的範例加上一些資訊
 
-```
+```yaml
 ---
 layout: post
 category : jekyll

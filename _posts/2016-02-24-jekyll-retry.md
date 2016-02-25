@@ -27,7 +27,7 @@ jekyll new C:\AndyShiue\AndyShiue.github.io
 如果真的沒有要提供任何資訊
 只要在文章開頭輸入2行各3個減號：
 
-```
+```yaml
 ---
 ---
 ```
@@ -36,7 +36,7 @@ jekyll new C:\AndyShiue\AndyShiue.github.io
 我先試著把[Jekyll(1)](http://pigggggggggggggy.logdown.com/posts/2016/02/24/546001)丟到`_post`裡面吧
 並參考範例加入以下前置物：
 
-```
+```yaml
 ---
 layout: post
 title: "Jekyll(1)"
@@ -51,11 +51,9 @@ Google "Jekyll GFM"會查到官網的[調校](http://jekyllrb.com/docs/configura
 我發現只要在`_config.yml`裡加入幾行就能開啟GFM的功能
 跟著做吧：
 
-```
+```yaml
 kramdown:
   input: GFM
-
-kramdown:
   hard_wrap: true
 ```
 

@@ -13,7 +13,7 @@ description: > # this means to ignore newlines until "baseurl:"
   主要談論程式和邏輯相關的資訊
   應該會寫一些教學？
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "安安的異想世界" # the base hostname & protocol for your site
 #　twitter_username: jekyllrb
 github_username: AndyShiue
 
@@ -22,6 +22,4 @@ markdown: kramdown
 
 kramdown:
   input: GFM
-
-kramdown:
   hard_wrap: true
