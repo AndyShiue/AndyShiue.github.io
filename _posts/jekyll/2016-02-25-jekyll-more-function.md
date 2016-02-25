@@ -26,8 +26,8 @@ categories: jekyll
 還記得上一次我們找到的`_layouts.default.html`嗎？
 重新來看看它的原始碼：
 
-```html
 {% raw %}
+```html
 <!DOCTYPE html>
 <html>
 
@@ -48,15 +48,15 @@ categories: jekyll
   </body>
 
 </html>
-{% endraw %}
 ```
+{% endraw %}
 
 可以發現到它把`<body>`之前的資訊都存放在`head.html`中
 因此現在應該去看看`_includes\head.html`
 原始碼如下：
 
-```html
 {% raw %}
+```html
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -69,8 +69,8 @@ categories: jekyll
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
 </head>
-{% endraw %}
 ```
+{% endraw %}
 
 你可以看到它儲存了`<head>`內的資訊
 尤其是我們最關注的`<title>`
