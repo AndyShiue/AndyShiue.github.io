@@ -123,4 +123,9 @@ Google "Jekyll Disqus"
 {% endunless %}
 ```
 
+再試著加上Facebook的讚按鈕好了
+Google "Facebook Like website"
+找到[FB的教學頁面](https://developers.facebook.com/docs/plugins/like-button?locale=zh_TW)
+一樣編輯`\_layouts`裡面的檔案就好囉
+
 {% endraw %}
