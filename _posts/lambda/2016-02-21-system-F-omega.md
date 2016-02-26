@@ -218,13 +218,13 @@ $$
 可以正式介紹\\((var)\\)了：
 
 $$
-(var) \quad \frac{\Gamma \vdash T: \star}{\Gamma, x: T \vdash x: T}
+(var) \quad \dfrac{\Gamma \vdash T: \star}{\Gamma, x: T \vdash x: T}
 $$
 
 舉個例子來說
 
 $$
-(var) \quad \frac{A: \star \vdash A: \star}{A: \star, x: A \vdash x: A}
+(var) \quad \dfrac{A: \star \vdash A: \star}{A: \star, x: A \vdash x: A}
 $$
 
 現在問題來了
@@ -266,7 +266,7 @@ $$
 我就不再度解釋它們了
 
 $$
-(conv) \quad \frac{\Gamma \vdash t: T \qquad \Gamma \vdash U: \star}{\Gamma \vdash t: U} \: \mbox{if } T \cong U
+(conv) \quad \dfrac{\Gamma \vdash t: T \qquad \Gamma \vdash U: \star}{\Gamma \vdash t: U} \: \mbox{if } T \cong U
 $$
 
 這是最後一條規則
