@@ -4,20 +4,29 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
+    <ul class="post-list">
+        {% for post in site.posts %}
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    {{ post.title }}
+                    <span class="post-meta pull-right">{{ post.date | date: "%b %-d, %Y" }}</span>
+                </div>
+                <div class="panel-body">
+                    <p>{{ post.excerpt }}</p>
+                </div>
+                <div class="panel-footer">
+                    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+                        ...繼續閱讀
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </ul>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            訂閱<a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS</a>
+        </div>
+    <div>
 
 </div>
