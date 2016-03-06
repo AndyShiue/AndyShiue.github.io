@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "CTAGI (1.1 - The very idea of a category)"
-categories: lambda
+categories: CTAGI
 ---
 
 > 1.1 The very idea of a category
