@@ -4,6 +4,8 @@ title: "CTAGI (1.1 - The very idea of a category)"
 categories: lambda
 ---
 
+> 1.1 The very idea of a category
+
 看到了第1章
 這章節正式介紹了何謂**範疇(category)**
 範疇是啥呢？
