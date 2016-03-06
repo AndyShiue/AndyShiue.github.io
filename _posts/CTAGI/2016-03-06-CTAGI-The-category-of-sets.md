@@ -4,6 +4,8 @@ title: "CTAGI (1.2 - The category of sets)"
 categories: CTAGI
 ---
 
+> 1.2 The category of sets
+
 這章提到了
 所有集合形成了一個範疇
 其中的每個物件是一個集合
