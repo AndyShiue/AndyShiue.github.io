@@ -8,8 +8,14 @@ layout: default
         {% for post in site.posts %}
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    {{ post.title }}
-                    <span class="post-meta pull-right">{{ post.date | date: "%b %-d, %Y" }}</span>
+                    <div class="container-fluid panel-container">
+                        <div class="row">
+                            <div class="col-xs-8">{{ post.title }}</div>
+                            <div class="col-xs-4">
+                                <span class="post-meta pull-right">{{ post.date | date: "%b %-d, %Y" }}</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="panel-body">
                     <p>{{ post.excerpt }}</p>
