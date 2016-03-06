@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "CTAGI (0 - A very short introduction)"
-categories: lambda
+categories: CTAGI
 ---
 
 新連載:D
