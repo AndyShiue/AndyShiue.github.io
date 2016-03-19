@@ -238,7 +238,7 @@ $$
 $$
 \begin{array}{lcl}
 (weak_1) & \dfrac{\Gamma \vdash x_1: T \qquad \Gamma \vdash U: \star}{\Gamma, x_2: U \vdash x_1: T} \\
-(weak_2) & \dfrac{\Gamma \vdash x: T}{\Gamma, U: \star \vdash x_1: T} \: \mbox{if } K是kind
+(weak_2) & \dfrac{\Gamma \vdash x: T}{\Gamma, U: K \vdash x_1: T} \: \mbox{if } K是kind
 \end{array}
 $$
 
