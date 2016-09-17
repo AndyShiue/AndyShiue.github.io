@@ -1,5 +1,4 @@
 _site
 .sass-cache
 .jekyll-metadata
-_posts/.DS_Store
- _posts/lambda/.DS_Store
+.DS_Store
