@@ -266,7 +266,7 @@ $$
 我就不再度解釋它們了
 
 $$
-(conv) \quad \dfrac{\Gamma \vdash t: T \qquad \Gamma \vdash U: \star}{\Gamma \vdash t: U} \: \mbox{if } T \cong U
+(conv) \quad \dfrac{\Gamma \vdash t: T \qquad \Gamma \vdash U: \star}{\Gamma \vdash t: U} \: \mbox{if } T \equiv U
 $$
 
 這是最後一條規則
@@ -291,36 +291,34 @@ $$
 最後再解釋\\(\beta\\)-等價性
 先給個簡單的例子
 \\((\lambda A: \star. A) B =\_\beta B\\)
-這麼一來你應該能大概抓到\\(\beta\\)-等價(也就是\\(=_\beta\\))到底是什麼
+這麼一來你應該能大概抓到\\(\beta\\)-等價(也就是\\(\equiv_\beta\\))到底是什麼
 
 首先介紹最簡單的等價性是什麼
 這純粹就只是字面上的等價而已
 它們的結構、變數名稱必須完全一樣
-我把這樣的等價性寫作\\(=\\)
-接下來介紹的等價性會建立在這之上
 
 接下來是\\(\alpha\\)-等價性
 在\\(\alpha\\)-等價性下
 我們可以更改綁定變數的名稱
 舉例來說
-\\(\lambda x. xz =\_\alpha \lambda y. yz\\)
-要更嚴謹地定義\\(=_\alpha\\)的話
+\\(\lambda x. xz \equiv\_\alpha \lambda y. yz\\)
+要更嚴謹地定義\\(\equiv_\alpha\\)的話
 這邊附上定義
 
 $$
 \begin{array}{lcl}
-\lambda x. t =_\alpha \lambda y. t[x:=y] \\
-如果t_1 =_\alpha t_2 則 \begin{cases}
-                        t_1 t_3 =_\alpha t_2 t_3 \\
-                        t_3 t_1 =_\alpha t_3 t_2 \\
-                        \lambda x. t_1 =_\alpha \lambda x. t_2 \\
+\lambda x. t\equiv_\alpha \lambda y. t[x:=y] \\
+如果t_1 \equiv_\alpha t_2 則 \begin{cases}
+                        t_1 t_3 \equiv_\alpha t_2 t_3 \\
+                        t_3 t_1 \equiv_\alpha t_3 t_2 \\
+                        \lambda x. t_1 \equiv_\alpha \lambda x. t_2 \\
                         \end{cases}
 \end{array}
 $$
 
 簡單來說2個term是\\(\alpha\\)-等價代表從其中一個term開始在任何地方更改綁定變數數次能得到另一個term
 接著介紹\\(\beta\\)-等價
-\\(T_1 =\_\beta T_2\\)代表的是\\(T_1\\)的NF\\(=\_\alpha T_2\\)的NF
+\\(T_1 \equiv\_\beta T_2\\)代表的是\\(T_1\\)的NF\\(=\_\alpha T_2\\)的NF
 換句話說
 我們會盡量化簡等號兩邊的term
 也就是說
@@ -328,7 +326,7 @@ $$
 最終得到的結果會幾乎是同一個term
 頂多只是綁定變數名稱不同而已
 因為STLC是強規範化的
-因此對\\(=_\beta\\)兩邊求NF的過程也一定會結束
+因此對\\(\equiv_\beta\\)兩邊求NF的過程也一定會結束
 不會遇到無窮迴圈
 而這也就是我們想要的
 
