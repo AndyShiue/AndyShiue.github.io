@@ -88,10 +88,9 @@ h1, h2, h3, h4, h5, h6 {
 /**
  * Tables
  */
-table {
-    border-width: 1px;
-    border-style: solid;
-}
+ table td, table th {
+     border: 1px solid black;
+ }
 
 /**
  * Links
