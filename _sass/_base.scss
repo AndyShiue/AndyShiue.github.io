@@ -85,7 +85,13 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: $base-font-weight;
 }
 
-
+/**
+ * Tables
+ */
+p {
+    border-width: 1px;
+    border-style: solid;
+}
 
 /**
  * Links
