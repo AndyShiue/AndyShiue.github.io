@@ -204,8 +204,8 @@ data Expr = Var Symbol
 
 $$
 \begin{array}{lcl}
-\mathbf{TRUE}  & = & \mathbf{K} \\
-\mathbf{FALSE} & = & \lambda x y. y
+\mathbf{TRUE}  & \stackrel{def}{=} & \mathbf{K} \\
+\mathbf{FALSE} & \stackrel{def}{=} & \lambda x y. y
 \end{array}
 $$
 
@@ -214,7 +214,7 @@ $$
 因此要寫一個\\(\mathbf{IF}\\)是不難的
 
 $$
-\mathbf{IF} = \lambda p x y. p x y
+\mathbf{IF} \stackrel{def}{=} \lambda p x y. p x y
 $$
 
 \\(\mathbf{IF}\\)只要把後面兩個參數丟給第一個參數就好了
