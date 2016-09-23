@@ -291,6 +291,6 @@ $$
 \texttt{inl}: A \to A + B \\
 \texttt{inl} \stackrel{def}{\equiv} \lambda a: A. \lambda C: \star. \lambda f: A \to C. \lambda g: B \to C. f a \\
 
-\texttt{inr}: A \to A + B \\
+\texttt{inr}: B \to A + B \\
 \texttt{inr} \stackrel{def}{\equiv} \lambda a: A. \lambda C: \star. \lambda f: A \to C. \lambda g: B \to C. g a
 $$
