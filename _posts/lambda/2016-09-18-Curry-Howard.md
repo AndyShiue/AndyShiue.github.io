@@ -227,8 +227,70 @@ $$
 要建構\\(A \times B\\)的term的方式如下
 
 $$
-(a, b): A \times B
+(a, b): A \times B \\
 (a, b) \stackrel{def}{\equiv} \lambda C: \star. \lambda f: A \to B \to C. f a b
 $$
 
-接著來介紹如何從\\((a, b)\\)中取得\\(a\\)和\\(b\\)兩者的資訊
+這樣的定義其實有點理所當然
+它告訴我們可以把任何依賴\\(a\\)和\\(b\\)的函數丟進去以產生一個新的\\(C\\)的term
+接著來介紹如何從\\((a, b)\\)中取回\\(a\\)和\\(b\\)兩者的資訊
+稍微思考一下之後可以知道
+只要把適當的\\(f\\)丟進去\\((a, b)\\)的定義就好了
+要取得\\(a\\)的話用\\(\texttt{fst}\\)
+要取得\\(b\\)的話用\\(\texttt{snd}\\)
+
+$$
+texttt{fst}: A \times B \to A
+texttt{fst} \stackrel{def}{\equiv} \lambda t: A \times B. t A (\lambda a: A. \lambda b: B. a)
+
+texttt{snd}: A \times B \to A
+texttt{snd} \stackrel{def}{\equiv} \lambda t: A \times B. t A (\lambda a: A. \lambda b: B. b)
+$$
+
+其實有點像是循環論證啦
+畢竟我們定義出二元組就是用來能讓\\(\texttt{fst}\\)和\\(\texttt{snd}\\)能被寫出來啊.....
+一個雞生蛋蛋生雞的概念
+
+接著來介紹邏輯中的*或*
+\\(A\\)或\\(B\\)在邏輯上寫作\\(A \lor B\\)
+但通常型別系統中寫作\\(A + B\\)
+不囉唆直接給定義了：
+
+$$
+A + B \stackrel{def}{\equiv} (C: \star) \to (A \to C) \to (B \to C) \to C
+$$
+
+\\(A + B\\)的定義同樣會傳回一個任意的命題\\(C\\)
+但不同的是它不需要同時接收\\(A\\)和\\(B\\)兩個參數
+而是接收\\(A \to C\\)和\\(B \to C\\)
+為什麼呢？
+因為現在我們不要求\\(A\\)和\\(B\\)同時成立
+而是其中一個成立就好了
+假如是\\(A\\)成立好了
+我們能把它丟給\\(A \to C\\)得到\\(C\\)
+假如是\\(B\\)成立也類似
+用這樣的寫法
+我們只需要求兩者其中之一成立就好了
+
+現在來講\\(A + B\\)在寫程式上頭的用途
+它儲存了\\(A\\)或\\(B\\)其中一者的term
+在\\(A \times B\\)中
+要建構一個term只需要一個函數
+要獲得它的內容則有\\(\texttt{fst}\\)和\\(\texttt{snd}\\)兩種方式
+\\(A + B\\)則相反
+有兩種方式能建構一個type為\\(A + B\\)的term
+但要使用它只有一種方式
+
+要獲得\\(A + B\\)的term的第一個方式是\\(\texttt{inl}\\)
+以\\(A + B\\)來說
+\\(\texttt{inl}\\)代表的是它的內容事實上是左邊的\\(A\\)
+第二個方式則是\\(\texttt{inr}\\)
+代表的是它的內容事實上是右邊的\\(B\\)
+
+$$
+\texttt{inl}: A \to A + B \\
+\texttt{inl} \stackrel{def}{\equiv} \lambda a: A. \lambda C: \star. \lambda f: A \to C. \lambda g: B \to C. f a
+
+\texttt{inr}: A \to A + B \\
+\texttt{inr} \stackrel{def}{\equiv} \lambda a: A. \lambda C: \star. \lambda f: A \to C. \lambda g: B \to C. g a
+$$

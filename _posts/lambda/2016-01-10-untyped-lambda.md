@@ -204,22 +204,22 @@ data Expr = Var Symbol
 
 $$
 \begin{array}{lcl}
-\mathbf{TRUE}  & \stackrel{def}{\equiv} & \mathbf{K} \\
-\mathbf{FALSE} & \stackrel{def}{\equiv} & \lambda x y. y
+\mathtt{true}  & \stackrel{def}{\equiv} & \mathbf{K} \\
+\mathtt{false} & \stackrel{def}{\equiv} & \lambda x y. y
 \end{array}
 $$
 
-\\(\mathbf{TRUE}\\)傳回兩個參數中的第一個
-\\(\mathbf{FALSE}\\)傳回第二個
-因此要寫一個\\(\mathbf{IF}\\)是不難的
+\\(\mathtt{true}\\)傳回兩個參數中的第一個
+\\(\mathtt{false}\\)傳回第二個
+因此要寫一個\\(\mathtt{if}\\)是不難的
 
 $$
-\mathbf{IF} \stackrel{def}{\equiv} \lambda p x y. p x y
+\mathtt{if} \stackrel{def}{\equiv} \lambda p x y. p x y
 $$
 
-\\(\mathbf{IF}\\)只要把後面兩個參數丟給第一個參數就好了
-所以\\(\mathbf{IF \\: TRUE} \\: x y = x\\)
-而且\\(\mathbf{IF \\: FALSE} \\: x y = y\\)
+\\(\mathtt{if}\\)只要把後面兩個參數丟給第一個參數就好了
+所以\\(\mathtt{if \\: true} \\: x y = x\\)
+而且\\(\mathtt{if \\: false} \\: x y = y\\)
 
 (未撰寫)
 
