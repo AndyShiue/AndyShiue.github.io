@@ -294,3 +294,12 @@ $$
 \texttt{inr}: B \to A + B \\
 \texttt{inr} \stackrel{def}{\equiv} \lambda a: A. \lambda C: \star. \lambda f: A \to C. \lambda g: B \to C. g a
 $$
+
+至於要如何使用\\(A + B\\)
+\\((C: \star) \to (A \to C) \to (B \to C) \to C\\)這個type說得很清楚了
+我們要決定一個目標type
+就叫他\\(T\\)好了
+然後提供一個\\(A \to T\\)的函數和一個\\(B \to T\\)的函數
+把它丟給\\(A + B\\)的term後就會拿回一個\\(T\\)
+
+(未撰寫完成)
