@@ -240,11 +240,11 @@ $$
 要取得\\(b\\)的話用\\(\texttt{snd}\\)
 
 $$
-texttt{fst}: A \times B \to A
-texttt{fst} \stackrel{def}{\equiv} \lambda t: A \times B. t A (\lambda a: A. \lambda b: B. a)
+\texttt{fst}: A \times B \to A
+\texttt{fst} \stackrel{def}{\equiv} \lambda t: A \times B. t A (\lambda a: A. \lambda b: B. a)
 
-texttt{snd}: A \times B \to A
-texttt{snd} \stackrel{def}{\equiv} \lambda t: A \times B. t A (\lambda a: A. \lambda b: B. b)
+\texttt{snd}: A \times B \to A
+\texttt{snd} \stackrel{def}{\equiv} \lambda t: A \times B. t A (\lambda a: A. \lambda b: B. b)
 $$
 
 其實有點像是循環論證啦
