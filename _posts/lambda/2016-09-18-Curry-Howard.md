@@ -240,10 +240,10 @@ $$
 要取得\\(b\\)的話用\\(\texttt{snd}\\)
 
 $$
-\texttt{fst}: A \times B \to A
-\texttt{fst} \stackrel{def}{\equiv} \lambda t: A \times B. t A (\lambda a: A. \lambda b: B. a)
+\texttt{fst}: A \times B \to A \\
+\texttt{fst} \stackrel{def}{\equiv} \lambda t: A \times B. t A (\lambda a: A. \lambda b: B. a) \\
 
-\texttt{snd}: A \times B \to A
+\texttt{snd}: A \times B \to A \\
 \texttt{snd} \stackrel{def}{\equiv} \lambda t: A \times B. t A (\lambda a: A. \lambda b: B. b)
 $$
 
@@ -289,7 +289,7 @@ $$
 
 $$
 \texttt{inl}: A \to A + B \\
-\texttt{inl} \stackrel{def}{\equiv} \lambda a: A. \lambda C: \star. \lambda f: A \to C. \lambda g: B \to C. f a
+\texttt{inl} \stackrel{def}{\equiv} \lambda a: A. \lambda C: \star. \lambda f: A \to C. \lambda g: B \to C. f a \\
 
 \texttt{inr}: A \to A + B \\
 \texttt{inr} \stackrel{def}{\equiv} \lambda a: A. \lambda C: \star. \lambda f: A \to C. \lambda g: B \to C. g a
