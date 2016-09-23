@@ -243,7 +243,7 @@ $$
 \texttt{fst}: A \times B \to A \\
 \texttt{fst} \stackrel{def}{\equiv} \lambda t: A \times B. t A (\lambda a: A. \lambda b: B. a) \\
 
-\texttt{snd}: A \times B \to A \\
+\texttt{snd}: A \times B \to B \\
 \texttt{snd} \stackrel{def}{\equiv} \lambda t: A \times B. t A (\lambda a: A. \lambda b: B. b)
 $$
 
