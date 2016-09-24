@@ -363,4 +363,4 @@ $$
 我想抹去type中長度的資料
 所以我應該用\\(\Sigma\\)-型別這麼寫：
 
-\\((T: \star) \to (n: \Nat) \to Array \\: T \\: n \to \sum\limits_{m: Nat} Array \\: T \\: m\\)
+\\((T: \star) \to (n: Nat) \to Array \\: T \\: n \to \sum\limits_{m: Nat} Array \\: T \\: m\\)
