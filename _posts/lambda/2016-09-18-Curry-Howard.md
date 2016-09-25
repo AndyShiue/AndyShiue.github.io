@@ -356,8 +356,8 @@ $$
 \texttt{fst}: (\sum\limits_{a: A} B) \to A \\
 \texttt{fst} \stackrel{def}{\equiv} \lambda t: \sum\limits_{a: A} B. t A (\lambda a: A. \lambda b: B. a) \\
 
-\texttt{snd}: (t: \sum\limits_{a: A} B) \to B[a := \texttt{fst} t] \\
-\texttt{snd} \stackrel{def}{\equiv} \lambda t: \sum\limits_{a: A} B. t B[a := \texttt{fst} t] (\lambda a: A. \lambda b: B. b)
+\texttt{snd}: (t: \sum\limits_{a: A} B) \to B[a := \texttt{fst} \\: t] \\
+\texttt{snd} \stackrel{def}{\equiv} \lambda t: \sum\limits_{a: A} B. t (B[a := \texttt{fst} \\: t]) (\lambda a: A. \lambda b: B. b)
 $$
 
 以程式的角度來探討
