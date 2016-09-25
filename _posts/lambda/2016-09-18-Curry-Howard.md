@@ -243,7 +243,7 @@ $$
 \texttt{fst} \stackrel{def}{\equiv} \lambda t: A \times B. t A (\lambda a: A. \lambda b: B. a) \\
 
 \texttt{snd}: A \times B \to B \\
-\texttt{snd} \stackrel{def}{\equiv} \lambda t: A \times B. t A (\lambda a: A. \lambda b: B. b)
+\texttt{snd} \stackrel{def}{\equiv} \lambda t: A \times B. t B (\lambda a: A. \lambda b: B. b)
 $$
 
 其實有點像是循環論證啦
@@ -342,6 +342,23 @@ $$
 
 一旦\\(a\\)能被依賴
 \\(B\\)這個type中便可以使用到\\(a\\)
+如果要建構一個\\(\Sigma\\)-型別的term
+我在此使用和普通\\(\times\\)型別一樣的語法：
+
+$$
+(a, b): \sum\limits_{a: A} B \\
+(a, b) \stackrel{def}{\equiv} \lambda C: \star. \lambda f: (a: A) \to B \to C. f a b
+$$
+
+\\(\texttt{fst}\\)和\\(\texttt{snd}\\)的定義則如下：
+
+$$
+\texttt{fst}: (\sum\limits_{a: A} B) \to A \\
+\texttt{fst} \stackrel{def}{\equiv} \lambda t: \sum\limits_{a: A} B. t A (\lambda a: A. \lambda b: B. a) \\
+
+\texttt{snd}: (t: \sum\limits_{a: A} B) \to B[a := \texttt{fst} t] \\
+\texttt{snd} \stackrel{def}{\equiv} \lambda t: \sum\limits_{a: A} B. t B[a := \texttt{fst} t] (\lambda a: A. \lambda b: B. b)
+$$
 
 以程式的角度來探討
 \\(\Sigma\\)-型別可以被想成是抹去type中一部份的資料
