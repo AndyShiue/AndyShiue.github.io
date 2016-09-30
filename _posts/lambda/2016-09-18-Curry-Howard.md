@@ -302,7 +302,7 @@ $$
 把它丟給\\(A + B\\)的term後就會拿回一個\\(T\\)
 
 至於表示兩個命題相等的雙箭頭\\(\leftrightarrow\\)
-則可以被定義成\\(A \leftrightarrow B \stackrel{def}{\equiv} A \to B \times B \to A\\)
+則可以被定義成\\(A \leftrightarrow B \stackrel{def}{\equiv} (A \to B) \times (B \to A)\\)
 命題邏輯的部分就到此告一段落了
 
 在一階邏輯中
