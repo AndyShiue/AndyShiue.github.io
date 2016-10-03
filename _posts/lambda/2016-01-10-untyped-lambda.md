@@ -221,9 +221,48 @@ $$
 所以\\(\mathtt{if \\: true} \\: x y = x\\)
 而且\\(\mathtt{if \\: false} \\: x y = y\\)
 
+我再另外提供兩個布林運算子的定義：
+
+$$
+\begin{array}{lcl}
+\mathtt{and} & \stackrel{def}{\equiv} & \lambda x y. x y x \\
+\mathtt{or} & \stackrel{def}{\equiv} & \lambda x y. x x y
+\end{array}
+$$
+
 ## 自然數
 
-(未撰寫完成)
+自然數是這樣被定義的：
+我接收一個函數和一個值
+把\\(n\\)這個自然數寫成是那個值套了\\(n\\)次函數所得到的結果
+如下：
+
+$$
+\begin{array}{lcl}
+0 & \stackrel{def}{\equiv} & \lambda f x. x \\
+1 & \stackrel{def}{\equiv} & \lambda f x. f x \\
+2 & \stackrel{def}{\equiv} & \lambda f x. f (f x) \\
+3 & \stackrel{def}{\equiv} & \lambda f x. f (f (f x)) \\
+...
+\end{array}
+$$
+
+加法的定義如下：
+
+$$
+x + y \stackrel{def}{\equiv} \lambda f z. x f (y f z)
+$$
+
+當進行加法的時候
+我們先使用\\(y\\)把\\(f\\)為\\(z\\)套上\\(y\\)層
+再使用\\(x\\)把\\(f\\)為\\(z\\)套上\\(x\\)層
+結果得到的就是一個套了\\(x + y\\)層函數的值
+
+乘法的定義則如下：
+
+$$
+x * y \stackrel{def}{\equiv} \lambda f . x (y f) 
+$$
 
 # \\(\beta\\)-歸約
 

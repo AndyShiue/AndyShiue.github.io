@@ -16,8 +16,6 @@ system Fω則再導入了type到type的函數
 
 為你隆重介紹 **kind**
 
-<!--more-->
-
 kind是type的型別
 首先
 我們有一個最基礎的kind
