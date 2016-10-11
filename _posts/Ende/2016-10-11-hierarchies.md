@@ -73,7 +73,7 @@ replicate[0: \mathbb{N}]       & (T: \mathcal{U}) : ?? = \ulcorner  \lrcorner \\
 replicate[Succ(n): \mathbb{N}] & (T: \mathcal{U}) : ?? = \ulcorner T, replicate[n](T) \lrcorner
 \end{array} \\
 \begin{array}{ll}
-sumAll()                                                              & : \mathbb{N} = 0 \\
+sumAll[Args: replicate(\mathbb{N})]()                                                 & : \mathbb{N} = 0 \\
 sumAll[Args: replicate(\mathbb{N})](head: \mathbb{N}, \ulcorner tail \lrcorner: Args) & : \mathbb{N} = sum(head, sumAll(\ulcorner tail \lrcorner))
 \end{array}
 $$
