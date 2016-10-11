@@ -11,10 +11,10 @@ So, for example, the type of \\(\mathcal{U}_0\\) is \\(\mathcal{U}_1\\), and the
 In this article, I exploit the need for (at least) one other hierarchy of universes, written \\(..\mathcal{U}_n\\), in which \\(n\\) is a natural number in the metatheory, as in the above notation \\(\mathcal{U}_n\\).
 
 To explain why other hierarchies of universes would be useful in a system programming language, one should know what system programming is.
-System programming is the idea of writing the most efficient program possible; in order to do it, one usually has to have the ability to sacrifice some abstraction and step into the world of direct pointer manipulation, referential transparency, etc. in order to be closest to the bare metal machine.
+System programming is the idea of writing the most efficient program possible; in order to do it, one usually has to have the ability to sacrifice some abstraction and step into the world of direct pointer manipulation, referential transparency, etc. in order to be the closest to the bare metal machine.
 The abstraction to sacrifice that I will focus on is Currying, a technique implemented mainly by functional programming languages with the ability to regard functions as first-class objects.
 In layman's term, Currying is the idea of eliminating multi-argument functions with single-argument ones.
-To achieve it, one sends the arguments one by one to each function that all of each but the last returns a function abstracting over the rest of arguments.
+To achieve it, one sends the arguments one by one to each function that all of each but the last returns a function abstracting over the rest of the arguments.
 In the view of category theory, that is possible because of the natural isomorphism between the hom-functor between \\(A \times B\\) and \\(C\\) and the hom-functor between \\(A\\) and \\(C^B\\) in cartesian closed categories.
 In a system programming language, we shall minimize the gap between the code the programmers write and the native settings on bare metal.
 However, computers nowadays have functions that receive several arguments at once.
@@ -22,7 +22,7 @@ If we apply the well-known simplification from multi- to single-argument functio
 In either case, Currying induce an overhead to the machine.
 
 Sometimes zero-cost abstractions is achieved by fallbacking to a lower-level outset, retaining the ability to build higher abstraction.
-In Currying, the case we focus on, I propose to provide uncurried functions by default, but provide special mechanisms to be generic over arity.
+In Currying, the case we focus on, I propose to provide not only uncurried functions by default, but also special mechanisms to be generic over arity.
 Below is an example of such a function, in which we sum up 2 natural numbers inductively:
 
 $$
@@ -33,22 +33,22 @@ sum( & Succ(l) & : \mathbb{N}, r: \mathbb{N}): \mathbb{N} = Succ(sum(l, r))
 $$
 
 Note that \\(sum(a)\\) shouldn't be allowed without an explicit lambda because of what is explained.
-Below is a function to sum up its arbitrarily many arguments, being generic over arity:
+The next one is a function summing up its arbitrarily many arguments, being generic over arity:
 
 $$
 \begin{array}{ll}
 sumAll()                              & : \mathbb{N} = 0 \\
-sumAll(head: \mathbb{N}, <[tail]>: ?) & : \mathbb{N} = sum(head, sumAll(<[tail]>))
+sumAll(head: \mathbb{N}, \ulcorner tail \lrcorner: ?) & : \mathbb{N} = sum(head, sumAll(\ulcorner tail \lrcorner))
 \end{array}
 $$
 
-\\(<[foo]>\\) can be seen as flattening a list of arguments.
-As usual, the pattern matching syntax \\(<[_]>\\) is for deconstructing value, and the term syntax \\(<[_]>\\) is for constructing one.
-Specifically, if someone writes \\(sumAll(1, 2, 3)\\), pattern matching matches \\(head\\) to \\(1\\) and \\(tail\\) to \\(2, 3\\); the \\(<[_]>]\\) syntax is meant to collect several arguments.
-On the other hand, the recursive call on the right hand side is applied with the arguments \\(<[tail]>\\).
+\\(\ulcorner foo \lrcorner\\) can be seen as flattening a list of arguments.
+As usual, the pattern matching syntax \\(\ulcorner _ \lrcorner\\) is for deconstructing value, and the term syntax \\(\ulcorner _ \lrcorner\\) is for constructing one.
+Specifically, if someone writes \\(sumAll(1, 2, 3)\\), pattern matching matches \\(head\\) to \\(1\\) and \\(tail\\) to \\(2, 3\\); the \\(\ulcorner _ \lrcorner]\\) syntax is meant to collect several arguments.
+On the other hand, the recursive call on the right hand side is applied with the arguments \\(\ulcorner tail \lrcorner\\).
 Here, the same syntax expands the arguments we collected.
 
-What should be the type of \\(<[tail]>\\)?
+What should be the type of \\(\ulcorner tail \lrcorner\\)?
 The most obvious choice is that it should be a homogeneous list generic over some type \\(T\\).
 In lots of programming languages without Currying, variable arguments is implemented that way.
 However, it could sometimes be too restrictive.
@@ -69,12 +69,12 @@ Now the \\(sumAll\\) example can be fully defined using const mode and a const f
 
 $$
 \begin{array}{ll}
-replicate[0: \mathbb{N}](T: \mathcal{U}) : ?? = <[]> \\
-replicate[Succ(n): \mathbb{N}](T: \mathcal{U}) : ?? = <[T, replicate[n](T)]>
+replicate[0: \mathbb{N}](T: \mathcal{U}) : ?? = \ulcorner  \lrcorner \\
+replicate[Succ(n): \mathbb{N}](T: \mathcal{U}) : ?? = \ulcorner T, replicate[n](T) \lrcorner
 \end{array} \\
 \begin{array}{ll}
 sumAll()                                                              & : \mathbb{N} = 0 \\
-sumAll[Args: replicate(\mathbb{N})](head: \mathbb{N}, <[tail]>: Args) & : \mathbb{N} = sum(head, sumAll(<[tail]>))
+sumAll[Args: replicate(\mathbb{N})](head: \mathbb{N}, \ulcorner tail \lrcorner: Args) & : \mathbb{N} = sum(head, sumAll(\ulcorner tail \lrcorner))
 \end{array}
 $$
 
