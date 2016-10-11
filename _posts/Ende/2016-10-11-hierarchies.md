@@ -44,7 +44,7 @@ $$
 
 \\(\ulcorner foo \lrcorner\\) can be seen as flattening a list of arguments.
 As usual, the pattern matching syntax \\(\ulcorner _ \lrcorner\\) is for deconstructing value, and the term syntax \\(\ulcorner _ \lrcorner\\) is for constructing one.
-Specifically, if someone writes \\(sumAll(1, 2, 3)\\), pattern matching matches \\(head\\) to \\(1\\) and \\(tail\\) to \\(2, 3\\); the \\(\ulcorner _ \lrcorner]\\) syntax is meant to collect several arguments.
+Specifically, if someone writes \\(sumAll(1, 2, 3)\\), pattern matching matches \\(head\\) to \\(1\\) and \\(tail\\) to \\(2, 3\\); the \\(\ulcorner _ \lrcorner\\) syntax is meant to collect several arguments.
 On the other hand, the recursive call on the right hand side is applied with the arguments \\(\ulcorner tail \lrcorner\\).
 Here, the same syntax expands the arguments we collected.
 
@@ -68,9 +68,9 @@ We can call purely functional **const function** in const mode.
 Now the \\(sumAll\\) example can be fully defined using const mode and a const function called \\(replicate\\), which is a function generating the list of arguments of the same type:
 
 $$
-\begin{array}{ll}
-replicate[0: \mathbb{N}](T: \mathcal{U}) : ?? = \ulcorner  \lrcorner \\
-replicate[Succ(n): \mathbb{N}](T: \mathcal{U}) : ?? = \ulcorner T, replicate[n](T) \lrcorner
+\begin{array}{lll}
+replicate[0: \mathbb{N}]       & (T: \mathcal{U}) : ?? = \ulcorner  \lrcorner \\
+replicate[Succ(n): \mathbb{N}] & (T: \mathcal{U}) : ?? = \ulcorner T, replicate[n](T) \lrcorner
 \end{array} \\
 \begin{array}{ll}
 sumAll()                                                              & : \mathbb{N} = 0 \\
