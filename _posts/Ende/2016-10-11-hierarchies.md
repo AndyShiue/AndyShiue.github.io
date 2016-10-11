@@ -70,8 +70,8 @@ Now the \\(sumAll\\) example can be fully defined using const mode and a const f
 $$
 \begin{array}{ll}
 replicate[0: \mathbb{N}](T: \mathcal{U}) : ?? = <[]> \\
-replicate[Succ(n): \mathbb{N}](T: \mathcal{U}) : ?? = <[T, replicate[n](T)]> \\
-\end{array}
+replicate[Succ(n): \mathbb{N}](T: \mathcal{U}) : ?? = <[T, replicate[n](T)]>
+\end{array} \\
 \begin{array}{ll}
 sumAll()                                                              & : \mathbb{N} = 0 \\
 sumAll[Args: replicate(\mathbb{N})](head: \mathbb{N}, <[tail]>: Args) & : \mathbb{N} = sum(head, sumAll(<[tail]>))
