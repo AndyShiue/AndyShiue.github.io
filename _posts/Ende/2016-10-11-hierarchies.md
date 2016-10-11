@@ -85,3 +85,4 @@ The type of the type of any value is a universe.
 With a cumulative hierarchy of universes \\(\mathcal{U}_0 <: \mathcal{U}_1 <: \mathcal{U}_2 ...\\), we can assign each \\(\mathcal{U}_n\\) a universe \\(..\mathcal{U}_n\\) which is a list the types of which is \\(\mathcal{U}_n\\) and have arbitrary length; because of cumulativity, the types of all arguments belong to a sufficiently large \\(\mathcal{U}_n\\).
 
 Therefore, \\(??\\) would be \\(..\mathcal{U}_n\\), for a sufficiently large \\(n\\).
+The new hierarchy of types should also be cumulative, and it seems straightforward to say that \\(..\mathcal{U}_0 <: ..\mathcal{U}_1 <: ..\mathcal{U}_2 ...\\), i.e. \\(..\mathcal{U}_n\\) is covariant over \\(\mathcal{U}_n\\).
