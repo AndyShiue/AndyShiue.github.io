@@ -11,7 +11,7 @@ So, for example, the type of \\(\mathcal{U}_0\\) is \\(\mathcal{U}_1\\), and the
 In this article, I exploit the need for (at least) one other hierarchy of universes, written \\(..\mathcal{U}_n\\), in which \\(n\\) is a natural number in the metatheory, as in the above notation \\(\mathcal{U}_n\\).
 
 To explain why other hierarchies of universes would be useful in a system programming language, one should know what system programming is.
-System programming is the idea of writing the most efficient program possible; in order to do it, one usually has to have the ability to sacrifice some abstraction and step into the world of direct pointer manipulation, referential transparency, etc. in order to be the closest to the bare metal machine.
+System programming is the idea of writing the most efficient program possible; in order to do it, one usually has to have the ability to sacrifice some abstraction and step into the world of direct pointer manipulation, abandon referential transparency, etc. in order to be the closest to the bare metal machine.
 The abstraction to sacrifice that I will focus on is Currying, a technique implemented mainly by functional programming languages with the ability to regard functions as first-class objects.
 In layman's term, Currying is the idea of eliminating multi-argument functions with single-argument ones.
 To achieve it, one sends the arguments one by one to each function that all of each but the last returns a function abstracting over the rest of the arguments.
