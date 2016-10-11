@@ -58,7 +58,7 @@ An obvious and primitive notion are functions.
 Therefore, directly or indirectly, what should be filled into \\(?\\) should call a compile-time function that generates the argument list.
 Why "compile-time"?
 We can then monomorphize the function upfront before running it, making the overhead minimal.
-The whole idea of compile-time functions and arguments is described [here](http://andyshiue.github.io/programming/2016/05/01/modes.html) with the concept of *modes*.
+The whole idea of compile-time functions and arguments is described [here](http://andyshiue.github.io/programming/2016/05/01/modes.html) with the concept of **modes**.
 I'm just going to make a very brief review of the notion we need to proceed.
 
 I introduce another way to pass arguments, called **const mode**, in which the arguments should be supplied at compile time.
