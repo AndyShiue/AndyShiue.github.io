@@ -55,7 +55,7 @@ However, it could sometimes be too restrictive.
 For example, it cannot express the arguments in the argument list is alternating between some type \\(T\\) and another type \\(U\\).
 What is the way to build abstraction in programming languages?
 An obvious and primitive notion are functions.
-Therefore, directly or indirectly, what should be filled into the question mark should call a compile-time function that generates the argument list.
+Therefore, directly or indirectly, what should be filled into \\(?\\) should call a compile-time function that generates the argument list.
 Why "compile-time"?
 We can then monomorphize the function upfront before running it, making the overhead minimal.
 The whole idea of compile-time functions and arguments is described [here](http://andyshiue.github.io/programming/2016/05/01/modes.html) with the concept of *modes*.
