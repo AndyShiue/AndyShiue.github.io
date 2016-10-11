@@ -78,10 +78,10 @@ sumAll[Args: replicate(\mathbb{N})](head: \mathbb{N}, \ulcorner tail \lrcorner: 
 \end{array}
 $$
 
-How would \((??\)) be, then?
+How would \\(??\\) be, then?
 If we say the type of a heterogeneous list is the list of the types of each member of the list, we might want the type of the list to also be heterogeneous.
 Fortunately, we don't have to recurse forever to build higher-order argument lists because of a feature of normal type systems:
 The type of the type of any value is a universe.
 With a cumulative hierarchy of universes \\(\mathcal{U}_0 <: \mathcal{U}_1 <: \mathcal{U}_2 ...\\), the types of any arguments would belong to a universe.
-We can assign each \\(\mathcal{U}_n\\) a universe \\(..\mathcal{U}_n\\) which is a list the type of which is \\(\mathcal{U}_n\\) and have arbitrary length; because of cumulativity, the types of all arguments belong to a sufficiently large \\(\mathcal{U}_n\\).
-Therefore, \\(??\\) would be \(..\mathcal{U}_n\\), for a sufficiently large \\(n\\).
+We can assign each \\(\mathcal{U}_n\\) a universe \\(..\mathcal{U}_n\\) which is a list the types of which is \\(\mathcal{U}_n\\) and have arbitrary length; because of cumulativity, the types of all arguments belong to a sufficiently large \\(\mathcal{U}_n\\).
+Therefore, \\(??\\) would be \\(..\mathcal{U}_n\\), for a sufficiently large \\(n\\).
