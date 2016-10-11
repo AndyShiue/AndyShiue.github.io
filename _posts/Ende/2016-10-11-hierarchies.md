@@ -65,7 +65,7 @@ I introduce another way to pass arguments, called **const mode**, in which the a
 Arguments in const mode are written inside brackets (\\([]\\)) and can be inferred.
 Actually, the type of the argument list should be an argument in const mode.
 We can call purely functional **const function** in const mode.
-Now the \\(sumAll\\) example can be fully defined using const mode and a const function called \\(replicate\\), which is a function generating the list of arguments of the same type:
+Now the \\(sumAll\\) example can be fully defined using const mode and a const function called \\(replicate\\), which is a function generating the list of arguments of the same type replicating \\(n\\) times:
 
 $$
 \begin{array}{lll}
