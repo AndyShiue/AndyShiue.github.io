@@ -4,8 +4,6 @@ title: "Jekyll(4)"
 categories: jekyll
 ---
 
-{% raw %}
-
 這次來仔細看看Jekyll的[資料夾結構](https://jekyllrb.com/docs/structure/)吧
 
 1. `_config.yml`
@@ -141,5 +139,3 @@ Liquid在經由Jekyll處理過後會生成真正的檔案
 
 這篇文章介紹了Liquid的基礎
 就到這邊為止了喔！
-
-{% endraw %}
