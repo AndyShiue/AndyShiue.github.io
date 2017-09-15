@@ -10,4 +10,4 @@ I realized it's because the `IO` monad represents **everything** the subject obs
 
 In my opinion, time can be described as a stream of predicates. Never do I find the use of a type more complex than a colist for it. Not assuming my death, I'm still young, hence the coinductivity. As far as being predicates, in Martin-Lof type theory it's no different from `Set`, which is no different from small types except being open. The open universe and the IO monad exist for the same reason, that is, to isolate chaos.
 
-During writing this article, I changed my mind on whether induction is just an illusion. If it were, how is coinductive types any different while people have been analyzing them? At the end, illusion is just a specific kind of induced observation.
+During writing this article, I changed my mind on whether induction is just an illusion. If it were, how are coinductive types any different while people have been analyzing them? At the end, illusion is just a specific kind of induced observation.
