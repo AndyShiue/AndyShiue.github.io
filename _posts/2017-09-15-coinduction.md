@@ -4,6 +4,8 @@ title: "Coinduction"
 categories: philosophy
 ---
 
+# Coinduction
+
 There's only one way, namely *impurity*, to produce an instance of a coinductive type. What I was wondering is, in comparison, *why can we build inductive types anywhere?*
 
 I realized it's because the `IO` monad represents **everything** the subject observes; other coinductive types exist merely for convenience. If inductive types can be built from sum, product and exponential, that all of them can be used to build coinductive types is self-evident, for the reason that they, as well as induction rules, are *induced*, which is why mathematical *induction* has its name, despite being deductive.
