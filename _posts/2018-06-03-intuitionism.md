@@ -1,5 +1,7 @@
 # The Rise of Intuitionistic Logic
 
+華語版：http://andyshiue.github.io/2018/06/03/intuitionism-zh.html
+
 # Preface
 
 First of all, I want to express my gratitude to National Tsing Hua University (NTHU)  for accepting my application of enrollment without my taking the ability test, but through an independent program to find students who have special skills, and my specialty is about programming languages and logic, which are the topics of this essay.
